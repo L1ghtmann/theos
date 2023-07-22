@@ -31,14 +31,14 @@ jobs:
       - name: Build docs
         run: |
           make -C tmp all
-          cp -av tmp/_site/docs/ .
-          cp -av tmp/_site/assets/*.css docs/
-          rm -rf tmp
+          mkdir -pv docs/assets/
+          cp -av tmp/_site/docs/* docs/
+          cp -av tmp/_site/assets/*.css docs/assets/
+          rm -rvf tmp
 
       - name: Cleanup broken formatting
         run: |
-          sed -i 's/\/assets\//\/docs\//g' docs/*.html
-          sed -i '/<svg.*12.*/,/<\/svg>/d' docs/*.html
+          # sed -i '/<svg.*12.*/,/<\/svg>/d' docs/*.html
           sed -i 's/ Deployed on <a href="https:\/\/netlify.com">Netlify<\/a>.//g' docs/*.html
 
       - name: Update docs
