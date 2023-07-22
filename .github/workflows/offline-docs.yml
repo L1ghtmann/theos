@@ -40,7 +40,7 @@ jobs:
         run: |
           sed -i 's/\/assets\//assets\//g' docs/*.html
           sed -i 's/<a href="\/">/<a href="#">/g' docs/*.html
-          sed -i 's/<a href="\/docs\/">Home</a>/<a href="\/docs\/index.html">Home</a>/g' docs/*.html
+          sed -i 's/<a href="\/docs\/">Home<\/a>/<a href="\/docs\/index.html">Home<\/a>/g' docs/*.html
           sed -i 's/theos.dev\/docs\//mask/g' docs/*.html # mask https://theos.dev/docs/
           sed -i 's/\/docs\//..\/docs\//g' docs/*.html
           sed -i 's/mask/theos.dev\/docs\//g' docs/*.html # unmask https://theos.dev/docs/
