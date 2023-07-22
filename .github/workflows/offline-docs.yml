@@ -32,7 +32,7 @@ jobs:
         run: |
           make -C tmp all
           cp -av tmp/_site/docs/ .
-          cp -av tmp/_site/{css,img} docs/
+          cp -av tmp/_site/{assets,img} docs/
           rm -rf tmp
 
       - name: Cleanup broken formatting
