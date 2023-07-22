@@ -38,7 +38,7 @@ jobs:
 
       - name: Cleanup broken formatting
         run: |
-          sed -i 's/<a href="\/">/<a href=".\/">/g' docs/*.html
+          sed -i 's/<a href="\/">/<a href="#">/g' docs/*.html
           sed -i 's/\/assets\//assets\//g' docs/*.html
           sed -i 's/theos.dev\/docs\//mask/g' docs/*.html # mask https://theos.dev/docs/
           sed -i 's/\/docs\//..\/docs\//g' docs/*.html
