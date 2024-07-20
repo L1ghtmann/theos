@@ -209,25 +209,22 @@ darwin_mobile() {
 		LEGACY=1
 	fi
 
-	# Check for sudo (not installed by default on some jbs)
+	# Check for packages not installed by default on some jbs
 	if ! [[ -x $(command -v sudo) ]]; then
 		error "Please install 'sudo' in your package manager before proceeding with the installation."
 		exit 3
 	fi
 
-	# Check for coreutils (not installed by default on some jbs)
 	if ! [[ -x $(command -v head) ]]; then
 		error "Please install 'coreutils' in your package manager before proceeding with the installation."
 		exit 3
 	fi
 
-	# Check for xz (not installed by default on some jbs)
 	if ! [[ -x $(command -v xz) ]]; then
 		error "Please install 'xz-utils' in your package manager before proceeding with the installation."
 		exit 3
 	fi
 
-	# Check for apt-get (not installed by default on some jbs)
 	if ! [[ -x $(command -v apt-get) ]]; then
 		error "Please install 'apt' in your package manager before proceeding with the installation."
 		exit 3
@@ -284,7 +281,7 @@ darwin_mobile() {
 				exit 3
 			fi
 		fi
-		
+
 		# Check desire for Swift support
 		update "Checking desire for Swift support..."
 		read -p "Would you like to be able to work with Swift? If so, an additional package will need to be installed. [y/n]" confirm
