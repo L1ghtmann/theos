@@ -190,18 +190,8 @@ darwin() {
 			&& update "Dependencies have been successfully installed!" \
 			|| (error "Dependency install command seems to have encountered an error. Please see the log above."; exit 3)
 	else
-		read -p "Homebrew, which provides tools Theos depends on, is not installed. Would you like to have it installed for you? [y/n]" hbrew
-		if theos_bool $hbrew; then
-			bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" \
-				&& update "Homebrew has been successfully installed!" \
-				|| (error "Homebrew install command seems to have encountered an error. Please see the log above."; exit 3)
-			brew install ldid xz \
-				&& update "Dependencies have been successfully installed!" \
-				|| (error "Dependency install command seems to have encountered an error. Please see the log above."; exit 3)
-		else
-			error "Homebrew provides tools Theos depends on and thus is mandatory. Please install Homebrew before proceeding with the installation."
-			exit 3
-		fi
+		error "Homebrew provides tools Theos depends on and thus is mandatory. Please install Homebrew before proceeding with the installation."
+		exit 3
 	fi
 
 	set_theos
